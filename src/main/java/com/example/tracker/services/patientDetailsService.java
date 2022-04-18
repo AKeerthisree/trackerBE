@@ -30,7 +30,7 @@ public class patientDetailsService {
         //return list;
        return pdR.findAll();
     }
-    public patientDetails getPatientDetailsRest(Integer id) {
+    public patientDetails getPatientDetailsRest(String id) {
 
 //        patientDetails pd=null;
 //        for(patientDetails p:list){
@@ -51,7 +51,14 @@ public class patientDetailsService {
         return pdR.getAcceptedRequestsRepo();
     }
     public patientDetails addPatientDetailsRest(patientDetails pd) {
-        return pdR.save(pd);
+        patientDetails p=pdR.getById1(pd.getPatient_id());
+        if(p==null){
+            return pdR.save(pd);
+        }
+        else{
+            return null;
+        }
+
 //        list.add(pd);
 //        return pd;
     }

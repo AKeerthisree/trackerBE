@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-
-
 @RestController
 @CrossOrigin(origins = "*")
 
@@ -34,7 +32,7 @@ public class patientDetailsController {
 
 
     @GetMapping("/getOne/{id}")
-    public patientDetails getPatientDetails(@PathVariable Integer id) {
+    public patientDetails getPatientDetails(@PathVariable String id) {
         return pdS.getPatientDetailsRest(id);
     }
 

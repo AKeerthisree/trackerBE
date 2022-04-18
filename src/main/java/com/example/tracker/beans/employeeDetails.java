@@ -20,8 +20,10 @@ public class employeeDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
+    private String password;
     private String email;
     private String phone;
     private String role;
+    private boolean active;
 
 }

@@ -21,7 +21,7 @@ public interface patientDetailsRepository extends JpaRepository<patientDetails,I
     @Query(
             value = "SELECT * FROM patient_details u WHERE u.patient_id = ?1",
             nativeQuery = true)
-    patientDetails getById1(Integer id);
+    patientDetails getById1(String id);
 
 
     @Query(

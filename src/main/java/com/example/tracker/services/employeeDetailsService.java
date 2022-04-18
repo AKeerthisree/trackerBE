@@ -3,6 +3,7 @@ package com.example.tracker.services;
 import com.example.tracker.beans.employeeDetails;
 import com.example.tracker.repositories.employeeDetailsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,8 +13,14 @@ public class employeeDetailsService {
     @Autowired
     private employeeDetailsRepository edR;
 
+    @Autowired
+    public BCryptPasswordEncoder passwordEncoder;
+
     public employeeDetails addEmployee(employeeDetails ed) {
-        return  edR.save(ed);
+        ed.setActive(true);
+        ed.setPassword(passwordEncoder.encode((ed.getPassword())));
+        ed=edR.save(ed);
+        return ed;
     }
 
     public List<employeeDetails> addAllEmployees(List<employeeDetails> ed) {

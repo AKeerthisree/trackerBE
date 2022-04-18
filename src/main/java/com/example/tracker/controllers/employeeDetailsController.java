@@ -1,19 +1,23 @@
 package com.example.tracker.controllers;
 
 
+import com.example.tracker.beans.LoginRequest;
 import com.example.tracker.beans.employeeDetails;
+import com.example.tracker.services.EmpLoginService;
 import com.example.tracker.services.employeeDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin("*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/emp")
 public class employeeDetailsController {
     @Autowired
     private employeeDetailsService edS;
+
     @PostMapping("/addEmployee")
     public employeeDetails addEmployee(@RequestBody employeeDetails ed){
         return edS.addEmployee(ed);
