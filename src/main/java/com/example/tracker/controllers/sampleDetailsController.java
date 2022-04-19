@@ -1,4 +1,5 @@
 package com.example.tracker.controllers;
+import com.example.tracker.beans.blockDetails;
 import com.example.tracker.beans.patientDetails;
 import com.example.tracker.beans.sampleDetails;
 import com.example.tracker.services.patientDetailsService;
@@ -51,7 +52,10 @@ public class sampleDetailsController
 
     }
 
-
+    @GetMapping("/getSampleDetailsOfPatient/{patient_id}")
+    public List<sampleDetails> getSampleDetailsOfPatient(@PathVariable String patient_id){
+        return sdS.getSampleDetailsOfPatient_Service(patient_id);
+    }
 
 
 

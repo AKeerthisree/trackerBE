@@ -1,5 +1,6 @@
 package com.example.tracker.repositories;
 
+import com.example.tracker.beans.blockDetails;
 import com.example.tracker.beans.patientDetails;
 import com.example.tracker.beans.sampleDetails;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -32,4 +33,10 @@ public interface sampleDetailsRepository extends JpaRepository<sampleDetails,Int
 //            nativeQuery= true
 //    )
 //    List<sampleDetails> getRequestsJPA();
+    @Query(
+            value="SELECT * FROM sample_details b WHERE b.sample_id LIKE ?1%",
+            nativeQuery = true
+    )
+    public List<sampleDetails> getSampleDetailsPatient_Repo(String id);
+
 }

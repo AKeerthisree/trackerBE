@@ -70,6 +70,11 @@ public class patientDetailsController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/getPendingPatients/{stationNo}")
+    public List<patientDetails> getPendingPatients(@PathVariable int stationNo){
+            return pdS.getPndngPtnt_Service(stationNo);
+    }
 //    @GetMapping("/getPatientDetailByUHID")
 //    public String getPatientDetailByUHID(@RequestParam String uhid)throws JsonProcessingException {
 //        return pdS.getPatientDetailByUHIDRest(uhid);

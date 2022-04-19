@@ -1,5 +1,6 @@
 package com.example.tracker.services;
 
+import com.example.tracker.beans.blockDetails;
 import com.example.tracker.beans.patientDetails;
 import com.example.tracker.beans.sampleDetails;
 import com.example.tracker.repositories.patientDetailsRepository;
@@ -68,6 +69,12 @@ public class sampleDetailsService {
         return null;
       //  return sdR.saveAll(l_sd);
     }
+
+    public List<sampleDetails> getSampleDetailsOfPatient_Service(String patient_id){
+        patient_id+=":";
+        return sdR.getSampleDetailsPatient_Repo(patient_id);
+    }
+
     public sampleDetails updateSampleDetailsRest(sampleDetails sd){
 
         sdR.save(sd);

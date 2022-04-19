@@ -36,6 +36,15 @@ public class blockDetailsController {
         return bdS.updateRemarksRest(bd);
     }
 
+    @GetMapping("/getBlkDetailsOfPatient/{patient_id}")
+    public List<blockDetails> getBlkDetailsOfPatient(@PathVariable String patient_id){
+        return bdS.getBlkDetailsOfPatient_Service(patient_id);
+    }
+    @PutMapping("/updateBlock")
+    public blockDetails updateBlockDetails(@RequestBody blockDetails bd){
+        return bdS.updateBlockDetailsRest(bd);
+    }
+
 
 
 

@@ -30,4 +30,15 @@ public class blockDetailsService {
     public List<blockDetails> addAllBlockDetailsRest(List<blockDetails> bd){
         return bdR.saveAll(bd);
     }
+
+    public List<blockDetails> getBlkDetailsOfPatient_Service(String patient_id){
+        patient_id+=":";
+        return bdR.getBlkDetailsPatient_Repo(patient_id);
+    }
+
+    public blockDetails updateBlockDetailsRest(blockDetails bd){
+
+        bdR.save(bd);
+        return bd;
+    }
 }

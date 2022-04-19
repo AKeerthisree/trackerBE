@@ -1,6 +1,11 @@
 package com.example.tracker.beans;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -8,6 +13,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table()
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+
 public class blockDetails {
     @Id
     private String block_id;
@@ -17,38 +27,7 @@ public class blockDetails {
 
     private String remarks;
 
-    public blockDetails() {
-    }
-
-    public blockDetails(String block_id, sampleDetails sd, String remarks) {
-        this.block_id = block_id;
-        this.sd = sd;
-        this.remarks = remarks;
-    }
-
-    public String getBlock_id() {
-        return block_id;
-    }
-
-    public void setBlock_id(String block_id) {
-        this.block_id = block_id;
-    }
-
-    public sampleDetails getSd() {
-        return sd;
-    }
-
-    public void setSd(sampleDetails sd) {
-        this.sd = sd;
-    }
-
-    public String getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(String remarks) {
-        this.remarks = remarks;
-    }
+    private int last_updated_station=3;
 
     @Override
     public String toString() {
@@ -56,6 +35,7 @@ public class blockDetails {
                 "block_id='" + block_id + '\'' +
                 ", sd=" + sd +
                 ", remarks='" + remarks + '\'' +
+                ", last_updated_station=" + last_updated_station +
                 '}';
     }
 }

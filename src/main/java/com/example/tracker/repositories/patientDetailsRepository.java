@@ -35,4 +35,10 @@ public interface patientDetailsRepository extends JpaRepository<patientDetails,I
             nativeQuery = true
     )
     List<patientDetails> getAcceptedRequestsRepo();
+
+    @Query(
+            value = "SELECT * FROM patient_details p WHERE p.patient_id in (SELECT s.pd_patient_id FROM sample_details s WHERE s.last_updated_station = ?1)",
+            nativeQuery = true
+    )
+    List<patientDetails> getPndngPtnt_Repo(int stationNo);
 }

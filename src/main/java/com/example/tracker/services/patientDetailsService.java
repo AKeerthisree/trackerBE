@@ -89,6 +89,8 @@ public class patientDetailsService {
 //    public patientDetails findByUHIDRest(String uhid){
 //        return pdR.findByUHID(uhid);
 //    }
-
+    public List<patientDetails> getPndngPtnt_Service(int stationNo){
+        return pdR.getPndngPtnt_Repo(stationNo);
+    }
 
 }
