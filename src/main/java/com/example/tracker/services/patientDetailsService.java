@@ -50,6 +50,7 @@ public class patientDetailsService {
     public List<patientDetails> getAcceptedRequestsRest(){
         return pdR.getAcceptedRequestsRepo();
     }
+
     public patientDetails addPatientDetailsRest(patientDetails pd) {
         patientDetails p=pdR.getById1(pd.getPatient_id());
         if(p==null){
@@ -81,9 +82,9 @@ public class patientDetailsService {
         return pd;
     }
 
-    public void deletePatientDetailsRest(Integer id){
+    public void deletePatientDetailsRest(String id){
         //list=this.list.stream().filter(e->e.getId()!=id).collect(Collectors.toList());
-          patientDetails ent=pdR.getById(id);
+          patientDetails ent=pdR.getById1(id);
           pdR.delete(ent);
     }
 //    public patientDetails findByUHIDRest(String uhid){

@@ -19,4 +19,11 @@ public interface blockDetailsRepository extends JpaRepository<blockDetails,Integ
     )
     public List<blockDetails> getBlkDetailsPatient_Repo(String id);
 
+    @Query(
+            value="SELECT * FROM block_details b WHERE b.block_id LIKE ?1%",
+            nativeQuery = true
+    )
+    public List<blockDetails> getBlkDetailsSample_Repo(String id);
+
 }
+

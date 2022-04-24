@@ -34,9 +34,10 @@ public class sampleDetailsController
     }
 
     //get SampleDetails of grossingStation
-    @GetMapping("/getPendingSamples")
-    public List<sampleDetails> getPendingSamples(){
-        return sdS.getPendingSamplesRest();
+    @GetMapping("/getPendingSamples/{stationNo}")
+    public List<sampleDetails> getPendingSamples(@PathVariable int stationNo){
+
+        return sdS.getPendingSamplesRest(stationNo);
     }
 //    @GetMapping("/getRequests")
 //    public List<sampleDetails> getRequests(){

@@ -23,7 +23,7 @@ public class employeeDetails {
     private String password;
     private String email;
     private String phone;
-    private String role;
-    private boolean active;
+    private String role;//Admin , Receptionist , Technician , Doctor , HIS
+    private boolean active=true;
 
 }

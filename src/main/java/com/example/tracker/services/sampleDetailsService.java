@@ -37,8 +37,8 @@ public class sampleDetailsService {
         return true;
     }
 
-    public List<sampleDetails> getPendingSamplesRest(){
-        return sdR.getPendingSamplesRepo();
+    public List<sampleDetails> getPendingSamplesRest(int stationNo){
+        return sdR.getPendingSamplesRepo(stationNo);
     }
 
 

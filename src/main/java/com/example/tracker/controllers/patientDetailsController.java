@@ -26,7 +26,7 @@ public class patientDetailsController {
 
 
     @GetMapping("/getAll")
-    public List<patientDetails> getPatientDetails() {
+    public List<patientDetails> getPatientDetails(){
         return pdS.getPatientDetailsRest();
     }
 
@@ -46,7 +46,7 @@ public class patientDetailsController {
     }
 
 
-    @PostMapping("/insert")
+    @PostMapping("/addPatient")
     public patientDetails addPatientDetails(@Valid @RequestBody patientDetails pd) {
         return pdS.addPatientDetailsRest(pd);
     }
@@ -64,7 +64,7 @@ public class patientDetailsController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<HttpStatus> deletePatientDetails(@PathVariable String id){
         try{
-            this.pdS.deletePatientDetailsRest(Integer.valueOf(id));
+            this.pdS.deletePatientDetailsRest(id);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);

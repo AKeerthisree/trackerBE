@@ -40,6 +40,10 @@ public class blockDetailsController {
     public List<blockDetails> getBlkDetailsOfPatient(@PathVariable String patient_id){
         return bdS.getBlkDetailsOfPatient_Service(patient_id);
     }
+    @GetMapping("/getBlkDetailsOfSample/{sample_id}")
+    public List<blockDetails> getBlkDetailsOfSample(@PathVariable String sample_id){
+        return bdS.getBlkDetailsOfSample_Service(sample_id);
+    }
     @PutMapping("/updateBlock")
     public blockDetails updateBlockDetails(@RequestBody blockDetails bd){
         return bdS.updateBlockDetailsRest(bd);

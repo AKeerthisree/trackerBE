@@ -36,6 +36,11 @@ public class blockDetailsService {
         return bdR.getBlkDetailsPatient_Repo(patient_id);
     }
 
+    public List<blockDetails> getBlkDetailsOfSample_Service(String sample_id){
+        sample_id+=":";
+        return bdR.getBlkDetailsSample_Repo(sample_id);
+    }
+
     public blockDetails updateBlockDetailsRest(blockDetails bd){
 
         bdR.save(bd);

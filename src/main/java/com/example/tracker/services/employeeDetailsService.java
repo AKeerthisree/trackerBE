@@ -38,7 +38,8 @@ public class employeeDetailsService {
     public boolean deleteEmployeeByID(int id) {
         employeeDetails existingEMP = edR.getById(id);
         if(existingEMP != null) {
-            edR.deleteById(id);
+            existingEMP.setActive(false);
+            edR.save(existingEMP);
             return true;
         }
         return false;
@@ -49,18 +50,19 @@ public class employeeDetailsService {
         System.out.println(ed);
         if(existingEMP == null) {
             System.out.println("Emp not found");
-            return  edR.save(ed);
+            return null;
         }else  {
-            existingEMP.setName(ed.getName());
-            existingEMP.setEmail(ed.getEmail());
-            existingEMP.setRole(ed.getRole());
-            edR.save(existingEMP);
+//            existingEMP.setName(ed.getName());
+//            existingEMP.setEmail(ed.getEmail());
+//            existingEMP.setRole(ed.getRole());
+//
+            edR.save(ed);
         }
         return ed;
     }
 
     public List<employeeDetails> getAllEmployees() {
-        return edR.findAll();
+        return edR.findAllActive();
     }
 
     public employeeDetails getEmployeeByRole(String role) {

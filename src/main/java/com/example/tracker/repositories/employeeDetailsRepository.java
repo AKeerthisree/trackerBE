@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Locale;
 
 @Repository
@@ -27,4 +28,9 @@ public interface employeeDetailsRepository extends JpaRepository<employeeDetails
             nativeQuery = true
     )
    public employeeDetails findByRole(String role);
+    @Query(
+            value = "SELECT * FROM employee_details e WHERE e.active=true",
+            nativeQuery = true
+    )
+    public List<employeeDetails> findAllActive();
 }

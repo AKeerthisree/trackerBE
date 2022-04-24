@@ -44,7 +44,7 @@ public class employeeDetailsController {
     }
     // Update employee
     @PutMapping("/updateEmployee")
-    public employeeDetails updateEMployee(@RequestBody employeeDetails ed) {
+    public employeeDetails updateEmployee(@RequestBody employeeDetails ed) {
         return edS.updateEmployee(ed);
     }
     // Delete employee

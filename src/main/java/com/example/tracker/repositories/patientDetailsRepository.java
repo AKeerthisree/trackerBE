@@ -29,7 +29,7 @@ public interface patientDetailsRepository extends JpaRepository<patientDetails,I
             nativeQuery= true
     )
     List<patientDetails> getRequestsJPA();
-
+ //and u.patient_id in (SELECT s.pd_patient_id FROM sample_details s WHERE s.last_updated_station=1)",
     @Query(
             value="SELECT * FROM patient_details u WHERE u.accept=true",
             nativeQuery = true
@@ -37,7 +37,7 @@ public interface patientDetailsRepository extends JpaRepository<patientDetails,I
     List<patientDetails> getAcceptedRequestsRepo();
 
     @Query(
-            value = "SELECT * FROM patient_details p WHERE p.patient_id in (SELECT s.pd_patient_id FROM sample_details s WHERE s.last_updated_station = ?1)",
+            value = "SELECT * FROM patient_details p WHERE p.patient_id in (SELECT s.pd_patient_id FROM block_details s WHERE s.last_updated_station = ?1)",
             nativeQuery = true
     )
     List<patientDetails> getPndngPtnt_Repo(int stationNo);

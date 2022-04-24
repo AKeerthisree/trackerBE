@@ -18,10 +18,10 @@ public interface sampleDetailsRepository extends JpaRepository<sampleDetails,Int
 
 
     @Query(
-            value="SELECT * FROM sample_details s WHERE s.last_updated_station=2",
+            value="SELECT * FROM sample_details s WHERE s.last_updated_station=?1",
             nativeQuery = true
     )
-    List<sampleDetails> getPendingSamplesRepo();
+    List<sampleDetails> getPendingSamplesRepo(int stationNo);
 
 //    @Query(
 //            value = "select * from sample_details u where u.sample_id"
