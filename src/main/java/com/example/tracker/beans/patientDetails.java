@@ -6,8 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -27,6 +29,10 @@ public class patientDetails {
     private String sex;
     private String report;
 
+
+    @CreationTimestamp
+    private Date currDate;
+
     @Override
     public String toString() {
         return "patientDetails{" +
@@ -37,6 +43,7 @@ public class patientDetails {
                 ", accept=" + accept +
                 ", sex='" + sex + '\'' +
                 ", report='" + report + '\'' +
+                ", currDate=" + currDate +
                 '}';
     }
 }

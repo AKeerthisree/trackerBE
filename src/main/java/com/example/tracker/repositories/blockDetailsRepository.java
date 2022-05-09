@@ -25,5 +25,17 @@ public interface blockDetailsRepository extends JpaRepository<blockDetails,Integ
     )
     public List<blockDetails> getBlkDetailsSample_Repo(String id);
 
+    @Query(
+            value="SELECT * FROM block_details s WHERE s.last_updated_station=?1",
+            nativeQuery = true
+    )
+    List<blockDetails> getPendingBlocksRepo(int stationNo);
+
+    @Query(
+            value="SELECT * FROM block_details s WHERE s.block_id=?1",
+            nativeQuery = true
+    )
+    blockDetails getBlkByID(String block_id);
+
 }
 

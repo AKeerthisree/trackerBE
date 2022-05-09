@@ -17,6 +17,17 @@ public class blockDetailsController {
     @Autowired
     private blockDetailsService bdS;
 
+    @GetMapping("/getPendingBlocks/{stationNo}")
+    public List<blockDetails> getPendingBlocks(@PathVariable int stationNo){
+
+        return bdS.getPendingBlocksRest(stationNo);
+    }
+
+    @GetMapping("/getOneBlock/{block_id}")
+    public blockDetails getBlockDetailsByID(@PathVariable String block_id) {
+        return bdS.getBlockDetailsByIDRest(block_id);
+    }
+
     @GetMapping("/getAllBlocks")
     public List<blockDetails> getBlockDetails() {
         return bdS.getBlockDetailsRest();
@@ -48,8 +59,5 @@ public class blockDetailsController {
     public blockDetails updateBlockDetails(@RequestBody blockDetails bd){
         return bdS.updateBlockDetailsRest(bd);
     }
-
-
-
 
 }

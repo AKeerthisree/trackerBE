@@ -10,7 +10,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -74,6 +78,19 @@ public class patientDetailsController {
     @GetMapping("/getPendingPatients/{stationNo}")
     public List<patientDetails> getPendingPatients(@PathVariable int stationNo){
             return pdS.getPndngPtnt_Service(stationNo);
+    }
+
+    @GetMapping("/date/{startDate}/{endDate}")
+    public List<patientDetails> searchByDate(@PathVariable String startDate, @PathVariable String endDate) throws ParseException, ParseException {
+//        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//        LocalDate dateTime1 = LocalDate.parse(startDate, formatter);
+//        LocalDate dateTime2 = LocalDate.parse(endDate, formatter);
+        Date d1=new SimpleDateFormat("yyyy-MM-dd").parse(startDate);
+        Date d2=new SimpleDateFormat("yyyy-MM-dd").parse(endDate);
+
+        System.out.println(d1);
+        return pdS.getByDate(d1,d2);
+        //return null;
     }
 //    @GetMapping("/getPatientDetailByUHID")
 //    public String getPatientDetailByUHID(@RequestParam String uhid)throws JsonProcessingException {

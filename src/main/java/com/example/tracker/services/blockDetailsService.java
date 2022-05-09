@@ -14,6 +14,14 @@ public class blockDetailsService {
     @Autowired
     private blockDetailsRepository bdR;
 
+    public List<blockDetails> getPendingBlocksRest(int stationNo){
+        return bdR.getPendingBlocksRepo(stationNo);
+    }
+
+    public blockDetails getBlockDetailsByIDRest(String block_id){
+        return bdR.getBlkByID(block_id);
+    }
+
     public List<blockDetails> getBlockDetailsRest(){
         return bdR.findAll();
     }

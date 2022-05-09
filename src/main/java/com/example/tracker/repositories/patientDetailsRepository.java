@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 @Repository
@@ -41,4 +42,11 @@ public interface patientDetailsRepository extends JpaRepository<patientDetails,I
             nativeQuery = true
     )
     List<patientDetails> getPndngPtnt_Repo(int stationNo);
+
+    @Query(
+            value="SELECT * FROM patient_details s WHERE s.curr_date BETWEEN ?1 and ?2",
+            nativeQuery = true
+        )
+    List<patientDetails> findByCurrDateBetween(Date startDate, Date endDate);
+
 }
